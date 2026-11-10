@@ -1,0 +1,229 @@
+{
+  "name": "antigravity-egm-studio-ext",
+  "displayName": "EleGold Studio — Elephant-Goldfish Spec-Driven Design",
+  "description": "EleGold Studio: Spec-Driven Design (SDD) Studio based on Google's Elephant-Goldfish Model (EGM). Draft specifications with deep-context Elephant and audit cold with zero-context Goldfish across Gemini, Claude, OpenAI, Grok, and Ollama (EN/JA).",
+  "version": "0.3.0",
+  "icon": "media/logo.png",
+  "publisher": "y-kobayashi",
+  "author": "Y.Kobayashi",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/y-kobayashi/antigravity-egm-studio-ext"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning"
+  ],
+  "keywords": [
+    "elephant-goldfish-model",
+    "egm",
+    "spec-driven-development",
+    "sdd",
+    "architecture",
+    "antigravity",
+    "gemini",
+    "claude",
+    "openai"
+  ],
+  "activationEvents": [
+    "onView:egmStudio.sidebarView",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "egm-studio-container",
+          "title": "EleGold",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "egm-studio-container": [
+        {
+          "type": "webview",
+          "id": "egmStudio.sidebarView",
+          "name": "Spec Studio",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "egmStudio.openSettings",
+        "title": "EleGold Studio: Open Settings"
+      },
+      {
+        "command": "egmStudio.setApiKey",
+        "title": "EleGold Studio: Set LLM API Key (Gemini / Claude / OpenAI / Grok)"
+      },
+      {
+        "command": "egmStudio.testConnection",
+        "title": "EleGold Studio: Test LLM Connection"
+      },
+      {
+        "command": "egmStudio.toggleLanguage",
+        "title": "EleGold Studio: Toggle Language (English ⇔ Japanese)"
+      },
+      {
+        "command": "egmStudio.resetSession",
+        "title": "EleGold Studio: Reset Elephant Context History"
+      }
+    ],
+    "configuration": {
+      "title": "EleGold Studio (Elephant-Goldfish Model)",
+      "properties": {
+        "egmStudio.outputFolder": {
+          "type": "string",
+          "default": "EleGold_Specs",
+          "scope": "window",
+          "description": "Dedicated subfolder name inside the workspace where all EleGold Studio specification files are saved."
+        },
+        "egmStudio.language": {
+          "type": "string",
+          "enum": [
+            "en",
+            "ja"
+          ],
+          "default": "en",
+          "scope": "window",
+          "description": "Language for UI and generated specification documents (en = English, ja = Japanese)."
+        },
+        "egmStudio.provider": {
+          "type": "string",
+          "enum": [
+            "gemini",
+            "claude",
+            "openai",
+            "grok",
+            "ollama"
+          ],
+          "default": "gemini",
+          "scope": "window",
+          "description": "Primary LLM provider for the Elephant Architect."
+        },
+        "egmStudio.model": {
+          "type": "string",
+          "default": "gemini-4-argon",
+          "scope": "window",
+          "description": "Model ID for the Elephant Architect (Frontier models recommended for specification design: gemini-4-argon, gemini-3.1-pro-preview, claude-opus-5-5, gpt-6-astra, grok-4.7)."
+        },
+        "egmStudio.goldfishProvider": {
+          "type": "string",
+          "enum": [
+            "same",
+            "gemini",
+            "claude",
+            "openai",
+            "grok",
+            "ollama"
+          ],
+          "default": "same",
+          "scope": "window",
+          "description": "LLM provider for the Goldfish zero-context reviewer ('same' uses Elephant's provider with strict zero-context isolation)."
+        },
+        "egmStudio.goldfishModel": {
+          "type": "string",
+          "default": "",
+          "scope": "window",
+          "description": "Model ID for the Goldfish reviewer (leave empty to auto-select default model for the chosen provider)."
+        },
+        "egmStudio.enableLocalCache": {
+          "type": "boolean",
+          "default": true,
+          "scope": "window",
+          "description": "Enable local SHA-256 exact-match response caching to eliminate duplicate API calls and reduce token costs."
+        },
+        "egmStudio.webSearch.enabled": {
+          "type": "boolean",
+          "default": true,
+          "scope": "window",
+          "description": "Enable automated web & technical documentation search (DuckDuckGo / GitHub / Wikipedia / URL fetch) during specification design."
+        },
+        "egmStudio.webSearch.nativeGrounding": {
+          "type": "boolean",
+          "default": false,
+          "scope": "window",
+          "description": "Enable native provider search grounding (Google Search Grounding for Gemini / Live Search for Grok)."
+        },
+        "egmStudio.webSearch.tavilyApiKey": {
+          "type": "string",
+          "default": "",
+          "scope": "window",
+          "description": "Optional Tavily Search API Key (built-in DuckDuckGo/Wikipedia/GitHub search works automatically without a key)."
+        },
+        "egmStudio.endpoints.gemini": {
+          "type": "string",
+          "default": "https://generativelanguage.googleapis.com",
+          "scope": "window",
+          "description": "Google Gemini API Endpoint."
+        },
+        "egmStudio.endpoints.claude": {
+          "type": "string",
+          "default": "https://api.anthropic.com",
+          "scope": "window",
+          "description": "Anthropic Claude API Endpoint."
+        },
+        "egmStudio.endpoints.openai": {
+          "type": "string",
+          "default": "https://api.openai.com/v1",
+          "scope": "window",
+          "description": "OpenAI API Endpoint."
+        },
+        "egmStudio.endpoints.grok": {
+          "type": "string",
+          "default": "https://api.x.ai/v1",
+          "scope": "window",
+          "description": "xAI Grok API Endpoint."
+        },
+        "egmStudio.endpoints.ollama": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "scope": "window",
+          "description": "Local Ollama Endpoint."
+        },
+        "egmStudio.apiKeys.gemini": {
+          "type": "string",
+          "default": "",
+          "scope": "window",
+          "markdownDescription": "Gemini API Key (Recommended: save via Sidebar SecretStorage)."
+        },
+        "egmStudio.apiKeys.claude": {
+          "type": "string",
+          "default": "",
+          "scope": "window",
+          "markdownDescription": "Claude (Anthropic) API Key."
+        },
+        "egmStudio.apiKeys.openai": {
+          "type": "string",
+          "default": "",
+          "scope": "window",
+          "markdownDescription": "OpenAI API Key."
+        },
+        "egmStudio.apiKeys.grok": {
+          "type": "string",
+          "default": "",
+          "scope": "window",
+          "markdownDescription": "Grok (xAI) API Key."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "22.x",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.1.3"
+  }
+}

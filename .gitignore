@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Compiled output (uncomment if you don't want to track compiled JS)
+out/
+
+# Environment & Local Secrets (NEVER commit API keys)
+.env
+.env.*
+*.key
+*.pem
+
+# Local test specs & workspace state
+EleGold_Specs/
+.egm/
+.vscode-test/
+
+# OS & Editor metadata
+.DS_Store
+Thumbs.db
+

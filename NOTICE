@@ -1,0 +1,14 @@
+EleGold Studio — Elephant-Goldfish Specification-Driven Design (SDD) Extension
+Copyright (c) 2026 Y.Kobayashi
+
+This product includes software and architectural workflows inspired by and derived from:
+
+  Project: Elephant-Goldfish Model (EGM)
+  Repository: https://github.com/google/elephant-goldfish-model
+  Copyright: Copyright 2025 Google LLC
+  License: Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+
+Disclaimer:
+EleGold Studio is an independent open-source extension built upon the methodology
+published in google/elephant-goldfish-model and is not an officially supported Google product.
+
