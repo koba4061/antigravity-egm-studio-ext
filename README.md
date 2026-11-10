@@ -5,10 +5,18 @@
 </p>
 
 <p align="center">
+  <a href="./antigravity-egm-studio-ext-0.3.0.vsix"><img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F_Download_VSIX_(v0.3.0)-antigravity--egm--studio--ext--0.3.0.vsix-FF6B00?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Download VSIX v0.3.0" /></a>
+</p>
+
+<p align="center">
   <a href="https://github.com/google/elephant-goldfish-model"><img src="https://img.shields.io/badge/Upstream_Methodology-google%2Felephant--goldfish--model-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Upstream Methodology: google/elephant-goldfish-model" /></a>
   <a href="./LICENSE.txt"><img src="https://img.shields.io/badge/License-MIT_(Apache_2.0_Notice)-2ea44f?style=for-the-badge" alt="License" /></a>
   <img src="https://img.shields.io/badge/VS_Code_%2F_Cursor_%2F_Antigravity-%3E%3D1.85.0-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VS Code Compatibility" />
 </p>
+
+> ### 📦 Direct `.vsix` Download (Ready to Install)
+> - **👉 [Click here to download `antigravity-egm-studio-ext-0.3.0.vsix`](./antigravity-egm-studio-ext-0.3.0.vsix)** *(Click **"Download raw file"** on GitHub)*
+> - **How to Install (30 seconds)**: Open **VS Code / Antigravity / Cursor / Windsurf** → Press `Ctrl+Shift+P` (`Cmd+Shift+P` on macOS) → Run **`Extensions: Install from VSIX...`** → Select the downloaded `antigravity-egm-studio-ext-0.3.0.vsix`.
 
 **EleGold Studio** is a Specification-Driven Development (SDD) extension for **VS Code**, **Antigravity IDE**, **Cursor**, **Windsurf**, and all VS Code-compatible editors, built on Google's **[Elephant-Goldfish Model (`google/elephant-goldfish-model`)](https://github.com/google/elephant-goldfish-model)**.
 
@@ -149,12 +157,17 @@ API keys are stored securely in your operating system's encrypted keychain via V
 
 Compatible with **VS Code (`>= 1.85.0`)**, **Antigravity IDE**, **Cursor**, **Windsurf**, **VSCodium**, **GitHub Codespaces**, and **Devin IDE**.
 
-### Install from VSIX
-1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
-2. Run **`Extensions: Install from VSIX...`**.
-3. Select `antigravity-egm-studio-ext-0.3.0.vsix`.
+### Option 1: Install Pre-Built `.vsix` Package (Recommended)
 
-### Build from Source
+<p>
+  <a href="./antigravity-egm-studio-ext-0.3.0.vsix"><img src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F_Download_VSIX_(v0.3.0)-antigravity--egm--studio--ext--0.3.0.vsix-FF6B00?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Download VSIX v0.3.0" /></a>
+</p>
+
+1. Download **[`antigravity-egm-studio-ext-0.3.0.vsix`](./antigravity-egm-studio-ext-0.3.0.vsix)** from this repository.
+2. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+3. Run **`Extensions: Install from VSIX...`** and select `antigravity-egm-studio-ext-0.3.0.vsix`.
+
+### Option 2: Build from Source
 ```bash
 npm install
 npm run compile
